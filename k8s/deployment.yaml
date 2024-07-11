@@ -50,10 +50,14 @@ spec:
     metadata:
       labels:
         app: reviewfilmes
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '8080'
+        prometheus.io/path: '/metrics'
     spec:
       containers:
         - name: reviewfilmes
-          image: ericnag/movie-review:v2
+          image: ericnag/movie-review:v7
           env:
           - name: ASPNETCORE_HTTP_PORTS
             value: "8080"
